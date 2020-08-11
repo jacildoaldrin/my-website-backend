@@ -2,6 +2,8 @@ const express = require("express");
 
 const router = express.Router();
 
+const SendMessage = require("../functions/SendMessage");
+
 const Message = require("../models/Message");
 
 router.get("/get-messages", (req, res) => {
@@ -15,6 +17,7 @@ router.get("/get-messages", (req, res) => {
   });
 
   router.post("/send-message", (req, res) => {
+    SendMessage.send(req.body);
   })
 
 module.exports = router;
