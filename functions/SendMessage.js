@@ -16,7 +16,7 @@ module.exports.send = (data) => {
     from: email,
     to: "jacildo.aldrinjohn@gmail.com",
     subject: data.subject,
-    text: `Name: ${data.firstname} ${data.lastname}\nEmail: ${data.email}\n\n${data.message}`,
+    text: `Name: ${data.name}\nEmail: ${data.email}\n\nSubject:${data.subject}\n\n${data.message}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
