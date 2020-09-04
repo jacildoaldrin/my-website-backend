@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use("/messages", messageRoute);
 
 mongoose.set("useUnifiedTopology", true);
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
+mongoose.connect("mongodb+srv://aldrin123:aldrin123@cluster0-jtgdr.mongodb.net/portfolio?retryWrites=true&w=majority", { useNewUrlParser: true }, () => {
   console.log("Successful connection to DB!!!");
 });
 
