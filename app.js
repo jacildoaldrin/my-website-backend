@@ -1,6 +1,6 @@
 const express = require("express");
-var bodyParser = require('body-parser')
 const app = express();
+var bodyParser = require('body-parser')
 const mongoose = require("mongoose");
 
 const cors = require("cors");
@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+var port = process.env.PORT || 5000
+
 // routes
 const messageRoute = require("./routes/Message");
 
@@ -25,4 +27,4 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("Successful connection to DB!!!");
 });
 
-app.listen(3010);
+app.listen(port);
