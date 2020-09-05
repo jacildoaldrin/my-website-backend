@@ -1,6 +1,6 @@
 var nodemailer = require("nodemailer");
-var email = process.env.email;
-var password = process.env.password
+var email = process.env.EMAIL;
+var password = process.env.PASSWORD;
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -18,10 +18,10 @@ module.exports.send = (data) => {
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
-      if(error){
-          console.log(error);
-      }else{
-          console.log("Email sent: " + info.response);
-      }
-  })
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
 };
