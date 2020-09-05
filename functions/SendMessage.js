@@ -1,16 +1,17 @@
 var nodemailer = require("nodemailer");
-
+var email = process.env.email;
+var password = process.env.password
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "aldrinjohnjacildo@gmail.com",
-    pass: "aldrin123",
+    user: email,
+    pass: password,
   },
 });
 
 module.exports.send = (data) => {
   var mailOptions = {
-    from: "aldrinjohnjacildo@gmail.com",
+    from: email,
     to: "jacildo.aldrinjohn@gmail.com",
     subject: data.subject,
     text: `Name: ${data.name}\nEmail: ${data.email}\n\nSubject: ${data.subject}\n\n${data.message}`,
